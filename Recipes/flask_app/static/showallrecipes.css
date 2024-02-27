@@ -1,0 +1,15 @@
+table{
+    width: 1000px;
+    height: fit-content;
+    margin-left: 80px;
+    border-style: solid;
+    display: inline-table;
+    background-color: black;
+    }
+    td{
+        border-style: solid;
+        color: white;
+    }
+    th{color: white;}
+   
+    

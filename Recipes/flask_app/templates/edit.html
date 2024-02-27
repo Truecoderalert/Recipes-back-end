@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {%for r in recipe%}
+    <form action="/recipes/update/{{r.id}}" method="post">
+        <label for="name">name</label>
+        <input type="text" name= "name" value="{{r.name}}">
+        <label for="description">description</label>
+        <input type="text" name="description" value="{{r.description}}">
+        <label for="instructions">instructions</label>
+        <input type="text" name="instructions" value="{{r.instructions}}">
+        <input type="hidden" name='id' value="{{r.id}}">
+        <label for="date cooked">date cooked</label>
+        <input type="date">
+        {%endfor%}
+        <input type="submit">
+</body>
+</html>

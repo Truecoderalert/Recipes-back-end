@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='showallrecipes.css') }}">
+
+    <title>Document</title>
+</head>
+<body>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">name</th>
+                <th scope="col">instructions</th>
+                <th scope="col">description</th>
+                <th scope="col">made by</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for info in recipesandusers%}
+            <tr>
+                <td>{{info.name}}</td>
+                <td>{{info.instructions}}</td>
+                <td>{{info.description}}</td>
+                <td>{{info.creator.first_name}} {{info.creator.last_name}}</td>
+                <td class="btns">
+                    {%if session['user_id'] == info.user_id%}
+                    <button id="add" onmouseover=""><a href="/recipes/edit/{{info.id}}">edit</a></button> 
+                    <button id="add" onmouseover=""><a href="/recipes/delete/{{info.id}}">delete</a></button> 
+                    {%endif%}
+                    <button id="add" onmouseover=""><a href="/recipes/{{info.id}}">view recipe</a></button> 
+                </td>
+            {%endfor%}
+        </table>
+        <button id="add" onmouseover=""><a href="/reset">Log Out</a></button> 
+        <button id="add" onmouseover=""><a href="/recipes/new">ADD</a></button> 
+    </body>
+</html>

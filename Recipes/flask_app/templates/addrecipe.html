@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {%for recipe in recipes%}
+    {{recipe.name}}
+    {%endfor%}
+    <form action="/addrecipes" method="post">
+<label for="name">name</label>
+<input type="text" name="name" >
+<label for="description">description</label>
+<input type="text" name="description">
+<label for="instructions">instructions</label>
+<input type="text" name="instructions" >
+<input type="hidden" name="user_id" value="{{session['user_id']}}">
+<label for="date cooked">date cooked</label>
+<input type="date">
+<input type="submit">
+
+
+
+
+
+
+
+    </form>
+</body>
+</html>
